@@ -19,10 +19,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor:bgColor,
           textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
-              .apply(bodyColor: Colors.white10),
+              .apply(bodyColor: Colors.white),
         canvasColor: secondaryColor
       ),
-      home:  MainScreen(),
+      home:  const MainScreen(),
     );
   }
 }

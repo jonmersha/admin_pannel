@@ -1,17 +1,21 @@
+import 'package:admin_pannel/resposnsive.dart';
 import 'package:flutter/material.dart';
+
 import '../../../constants.dart';
 import 'file_information.dart';
 import 'list_object.dart';
 
-
 class MayFile extends StatelessWidget {
- final  List<ListObject> lists;
+  final List<ListObject> lists;
+
   const MayFile({
-    Key? key, required this.lists,
+    Key? key,
+    required this.lists,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final Size _size=MediaQuery.of(context).size;
     return Column(
       children: [
         Row(
@@ -35,15 +39,52 @@ class MayFile extends StatelessWidget {
         const SizedBox(
           height: defaultPadding,
         ),
-        GridView.builder(
-          shrinkWrap: true,
-          itemCount:lists.length ,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        //FileInfoCardGridView(lists: lists)
+        Responsive(
+            mobile: FileInfoCardGridView(
+              lists: lists,
+              crossAxisCount: _size.width<650?2:4,
+              childAspectRatio: _size.width<650?1.2:1.3,
+            ),
+            tablet: FileInfoCardGridView(
+              lists: lists,
               crossAxisCount: 4,
-              crossAxisSpacing: defaultPadding),
-          itemBuilder: (context, index) => FileInformation(lists: lists[index]),
-        )
+            ),
+            desktop: FileInfoCardGridView(
+              lists: lists,
+              crossAxisCount: 4,
+              childAspectRatio: _size.width < 1400 ?1.1:1.4,
+            ))
       ],
+    );
+  }
+}
+
+class FileInfoCardGridView extends StatelessWidget {
+  const FileInfoCardGridView(
+      {Key? key,
+      required this.lists,
+      this.crossAxisCount = 4,
+      this.childAspectRatio = 1})
+      : super(key: key);
+  final List<ListObject> lists;
+
+  final int crossAxisCount;
+  final double childAspectRatio;
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+      physics: NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
+      itemCount: lists.length,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: crossAxisCount,
+          childAspectRatio: childAspectRatio,
+          crossAxisSpacing: defaultPadding,
+          mainAxisSpacing: defaultPadding
+      ),
+      itemBuilder: (context, index) => FileInformation(lists: lists[index]),
     );
   }
 }

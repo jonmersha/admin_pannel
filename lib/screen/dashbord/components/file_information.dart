@@ -21,11 +21,11 @@ class FileInformation extends StatelessWidget {
           color: secondaryColor,
           borderRadius: BorderRadius.all(Radius.circular(10))),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-
           Container(
-            height: 40,
-            width: 40,
+            height: 20,
+            width: 20,
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(10)),
             ),

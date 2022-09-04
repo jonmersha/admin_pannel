@@ -1,10 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../constants.dart';
 
-class StorageInfoCard extends StatelessWidget {
 
+class StorageInfoCard extends StatelessWidget {
   final String title, image,fileAmount;
   final int fileNumber;
   const StorageInfoCard({
@@ -13,7 +12,6 @@ class StorageInfoCard extends StatelessWidget {
   required this.image,
   required this.fileAmount,
   required this.fileNumber,
-
 
   }) : super(key: key);
 
