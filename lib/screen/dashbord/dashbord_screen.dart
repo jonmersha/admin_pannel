@@ -18,10 +18,10 @@ class DashBoardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<ListObject> lists = [
-      ListObject(fileName: "FIle", imagePath: "assets/icons/Search.svg", fileSize: "20 GB", mediaType: "Text"),
-      ListObject(fileName: "FIle", imagePath: "assets/icons/Search.svg", fileSize: "20 GB", mediaType: "Text"),
-      ListObject(fileName: "FIle", imagePath: "assets/icons/Search.svg", fileSize: "20 GB", mediaType: "Text"),
-      ListObject(fileName: "FIle", imagePath: "assets/icons/Search.svg", fileSize: "20 GB", mediaType: "Text")
+      ListObject(fileName: "Documents", imagePath: "assets/icons/Figma_file.svg", fileSize: "20 GB", mediaType: "Text",color: Colors.blue,percentage: 50 ),
+      ListObject(fileName: "Google Drive", imagePath: "assets/icons/google_drive.svg", fileSize: "20 GB", mediaType: "Text",color: Colors.yellow,percentage: 80),
+      ListObject(fileName: "One Drive", imagePath: "assets/icons/media_file.svg", fileSize: "20 GB", mediaType: "Text",color: Colors.amber,percentage: 60),
+      ListObject(fileName: "Documents", imagePath: "assets/icons/menu_doc.svg", fileSize: "20 GB", mediaType: "Text",color: Colors.red,percentage: 30)
 
     ];
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../constants.dart';
+import 'file_information.dart';
 import 'list_object.dart';
 
 
@@ -7,8 +8,6 @@ class MayFile extends StatelessWidget {
  final  List<ListObject> lists;
   const MayFile({
     Key? key, required this.lists,
-      //required this.lists
-
   }) : super(key: key);
 
   @override
@@ -40,33 +39,9 @@ class MayFile extends StatelessWidget {
           shrinkWrap: true,
           itemCount:lists.length ,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 4, crossAxisSpacing: defaultPadding),
-          itemBuilder: (context, index) => Container(
-            padding: const EdgeInsets.all(defaultPadding),
-            decoration: const BoxDecoration(
-                color: secondaryColor,
-                borderRadius: BorderRadius.all(Radius.circular(10))),
-         child: Column(
-           children: [
-             Row(
-               children: [
-                 Container(
-                   height: 40,
-                   width: 40,
-                   decoration:  BoxDecoration(
-                       color: Colors.blue,
-                   borderRadius: BorderRadius.all(
-                       Radius.circular(10)
-
-                   ),
-                     image: Image.asset(image: lists[0].imagePath)
-                   ),
-                 )
-               ],
-             ),
-           ],
-         ),
-          ),
+              crossAxisCount: 4,
+              crossAxisSpacing: defaultPadding),
+          itemBuilder: (context, index) => FileInformation(lists: lists[index]),
         )
       ],
     );
