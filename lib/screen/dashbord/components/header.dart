@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import 'list_object.dart';
 class Header extends StatelessWidget {
   const Header({
     Key? key,
@@ -12,9 +14,9 @@ class Header extends StatelessWidget {
     return Row(
       children: [
         Text("DashBord",style: Theme.of(context).textTheme.headline6,),
-        Spacer(),
-        Expanded(child: SearchField()),
-        ProfileCard()
+        const Spacer(),
+        const Expanded(child: SearchField()),
+        const ProfileCard()
 
       ],
 
@@ -30,24 +32,25 @@ class SearchField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
     return TextField(
         decoration:InputDecoration(
             hintText: "Search",
             fillColor: secondaryColor,
             filled: true,
-            border: OutlineInputBorder(
+            border: const OutlineInputBorder(
                 borderSide: BorderSide.none,
-                borderRadius: const BorderRadius.all(Radius.circular(10))
+                borderRadius: BorderRadius.all(Radius.circular(10))
             ),
             suffixIcon: InkWell(
               onTap: (){},
               child: Container(
-                padding: EdgeInsets.all(defaultPadding*0.75),
-                margin: EdgeInsets.symmetric(horizontal: defaultPadding/2),
-                decoration: BoxDecoration(
+                padding: const EdgeInsets.all(defaultPadding*0.75),
+                margin: const EdgeInsets.symmetric(horizontal: defaultPadding/2),
+                decoration: const BoxDecoration(
                     color:primaryColor,
-                    borderRadius: const BorderRadius.all(Radius.circular(10))
-
+                    borderRadius: BorderRadius.all(Radius.circular(10))
                 ),
                 child: SvgPicture.asset("assets/icons/Search.svg"),
 
@@ -66,8 +69,8 @@ class ProfileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: defaultPadding),
-      padding: EdgeInsets.symmetric(horizontal: defaultPadding, vertical: defaultPadding/2),
+      margin: const EdgeInsets.only(left: defaultPadding),
+      padding: const EdgeInsets.symmetric(horizontal: defaultPadding, vertical: defaultPadding/2),
       decoration: BoxDecoration(
           color: secondaryColor,
           borderRadius: const BorderRadius.all(Radius.circular(10)),
@@ -79,13 +82,13 @@ class ProfileCard extends StatelessWidget {
             "assets/images/profile_pic.jpg",
             height: 38,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
+          const Padding(
+            padding: EdgeInsets.symmetric(
                 horizontal: defaultPadding/2
             ),
             child: Text("Yohannes Mitike"),
           ),
-          Icon(Icons.keyboard_arrow_down),
+          const Icon(Icons.keyboard_arrow_down),
 
         ],
       ),

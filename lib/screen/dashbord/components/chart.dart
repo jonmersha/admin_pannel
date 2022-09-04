@@ -1,15 +1,15 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-
 import '../../../constants.dart';
+
 
 class Chart extends StatelessWidget {
   const Chart({
     Key? key,
-    required this.paichartSelectionData,
+    required this.pieChartSelectionData,
   }) : super(key: key);
 
-  final List<PieChartSectionData> paichartSelectionData;
+  final List<PieChartSectionData> pieChartSelectionData;
   @override
   Widget build(BuildContext context) {
 
@@ -22,16 +22,14 @@ class Chart extends StatelessWidget {
                   sectionsSpace: 0,
                   centerSpaceRadius: 70,
                   startDegreeOffset: -90,
-                  sections: paichartSelectionData
-
+                  sections: pieChartSelectionData
               )
           ),
           Positioned.fill(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(height: defaultPadding,),
-
+                  const SizedBox(height: defaultPadding,),
                   Text("100%",style: Theme.of(context)
                       .textTheme
                       .headline4!
@@ -42,7 +40,7 @@ class Chart extends StatelessWidget {
                   ),
 
                   ),
-                  Text("of 12312321GB")
+                  const Text("of 12312321GB")
                 ],))
         ],
       ),
